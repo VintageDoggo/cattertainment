@@ -1,0 +1,35 @@
+header:
+  version: 14
+
+repos:
+  meta-raspberrypi:
+    path: upstream-layers/
+    url: https://github.com/agherzan/meta-raspberrypi.git
+    commit: 1091bde25e9ebaea33114edb85e4aee931d105f3
+
+  meta-lts-mixins:
+    path: upstream-layers/
+    url: https://git.yoctoproject.org/meta-lts-mixins
+    commit: a44882db02a0ed0f149371831bfbe067665eb42b
+
+  meta-mender-community:
+    path: upstream-layers/
+    url: https://github.com/mendersoftware/meta-mender-community
+    branch: scarthgap
+    layers:
+      meta-mender-raspberrypi:
+
+local_conf_header:
+  raspberrypi: |
+    RPI_USE_U_BOOT = "1"
+    ENABLE_UART = "1"
+    MENDER_BOOT_PART_SIZE_MB = "100"
+    IMAGE_INSTALL:append = " kernel-image kernel-devicetree"
+    IMAGE_FSTYPES:remove = " rpi-sdimg"
+  network: |
+    IMAGE_INSTALL:append = "\
+      hostapd \
+      dnsmasq \
+      iw \
+      wireless-regdb\
+    "

@@ -1,0 +1,8 @@
+header: 
+  version: 14
+  includes:
+  - kas/include/mender-base.yml
+  - kas/include/raspberrypi.yml
+  - kas/include/cattertainment.yml
+
+machine: raspberrypi4

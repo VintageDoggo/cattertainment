@@ -1,16 +1,24 @@
 header:
   version: 14
 
-local_conf_header:
-  network: |
-    IMAGE_INSTALL:append = "\
-      hostapd \
-      dnsmasq \
-      iw \
-      wireless-regdb \
-      linux-firmware-bcm43430 \
-      linux-firmware-bcm43455 \
-    "
-    SYSTEMD_AUTO_ENABLE:wpa-supplucant = "disable"
-    SYSTEMD_AUTO_ENABLE:wpa_supplicant@wlan0 = "disable"
-    SYSTEMD_AUTO_ENABLE:append = " hostapd dnsmasq systemd-networkd "
+repos:
+  meta-cattertainment:
+    path: meta-cattertainment
+
+target:
+  - catos
+# local_conf_header:
+#   network: |
+#     IMAGE_INSTALL:append = "\
+#       hostapd \
+#       dnsmasq \
+#       iw \
+#       wireless-regdb \
+#       linux-firmware-bcm43430 \
+#       linux-firmware-bcm43455 \
+#     "
+
+# TODO: Reenalble the systemd d management for wpa supplicant
+#    SYSTEMD_AUTO_ENABLE:wpa_supplicant = "disable"
+#    SYSTEMD_AUTO_ENABLE:wpa_supplicant@wlan0 = "disable"
+#    SYSTEMD_AUTO_ENABLE:append = " hostapd dnsmasq systemd-networkd "

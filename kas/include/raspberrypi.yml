@@ -3,17 +3,17 @@ header:
 
 repos:
   meta-raspberrypi:
-    path: upstream-layers/
+    path: upstream-layers/meta-raspberrypi
     url: https://github.com/agherzan/meta-raspberrypi.git
     commit: 1091bde25e9ebaea33114edb85e4aee931d105f3
 
   meta-lts-mixins:
-    path: upstream-layers/
+    path: upstream-layers/meta-lts-mixins
     url: https://git.yoctoproject.org/meta-lts-mixins
     commit: a44882db02a0ed0f149371831bfbe067665eb42b
 
   meta-mender-community:
-    path: upstream-layers/
+    path: upstream-layers/meta-mender-community
     url: https://github.com/mendersoftware/meta-mender-community
     branch: scarthgap
     layers:
@@ -26,10 +26,5 @@ local_conf_header:
     MENDER_BOOT_PART_SIZE_MB = "100"
     IMAGE_INSTALL:append = " kernel-image kernel-devicetree"
     IMAGE_FSTYPES:remove = " rpi-sdimg"
-  network: |
-    IMAGE_INSTALL:append = "\
-      hostapd \
-      dnsmasq \
-      iw \
-      wireless-regdb\
-    "
+  legal_flags:
+    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch "

@@ -7,5 +7,5 @@ IMAGE_INSTALL:append = "\
       hostapd \
       dnsmasq \
       iw \
-      wireless-regdb \
+      wireless-regdb-static \
     "

@@ -48,6 +48,9 @@ local_conf_header:
     CONF_VERSION = "2"
     PACKAGE_CLASSES = "package_ipk"
     INIT_MANAGER = "systemd"
+    DISTRO_FEATURES:append = " systemd usrmerge"
+    VIRTUAL-RUNTIME_init_manager = "systemd"
+    VIRTUAL_RUNTIME_initscripts = "systemd-compat-units"
   
   mender: |
     MENDER_ARTIFACT_NAME = "gha_autobuild"
